@@ -1,0 +1,100 @@
+.backorder-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.order-form{
+  // border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 70px;
+}
+
+label{
+  font-family: 'Montserrat', sans-serif;
+  color:#1a2856;
+  font-weight: 400;
+  font-size: 1.1em;
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+input{
+  width: 45%;
+  height: 30px ;
+  margin-bottom: 20px;
+  border: 1px solid #1a2856;
+  border-radius: 5px;
+
+}
+.final-message{
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid red;
+  width: 50%;
+  
+}
+.final-message-span{
+  font-family: 'Montserrat', sans-serif;
+  color: #1a2856;
+  font-weight: 400;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+.final-message-txtarea{
+  width: 100%;
+  height: 90px;
+  border: #000d38 1px solid;
+  border-radius: 15px;
+  resize: none;
+  background-color: transparent;
+  color: #000d38;
+  font-weight: 400;
+  font-size: 1.1em;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  
+}
+
+.btns-div{
+//  border: 1px solid red;
+ width: 30%;
+ display: flex;
+ justify-content: center;
+ padding-top: 10px;
+ height: 30px;
+
+}
+.send-btn{
+  background-color: #639f38;
+  color:white;
+  font-weight: 400;
+  font-size: 1.1em;
+  border: none;
+  margin-right: 10px;
+  width: 90px;
+  border-radius: 7px;
+}
+.cancel-btn{
+  background-color: #da3a3a;
+  color:white;
+  font-weight: 400;
+  font-size: 1.1em;
+  border: none;
+  margin-left: 10px;
+  width: 90px;
+  border-radius: 7px;
+  
+}
+
+.variable-span{
+  color: red;
+}
+
+
+
+
