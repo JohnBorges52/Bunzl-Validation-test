@@ -1,0 +1,42 @@
+.topnav-container{
+  background-color: #639f38;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{  
+  height: 70px;
+  width: 180px;
+  margin-left: 50px;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../public/1200px-Bunzl-Logo.svg_-1.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto 0 auto 50px;
+}
+.login{
+  height: 70px;
+  width: 180px;
+  margin: auto 0 auto 0;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2em;
+ 
+}
+.login:hover{
+  // text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+
+}
+
+
+//cblue #1a2856
