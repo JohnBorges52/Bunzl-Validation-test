@@ -26,21 +26,25 @@ return(
   <form className="order-form">
     <label> Order Number </label>
     <input
+    name='ordername'
     onChange={(e) => setOrderNumber(e.target.value)}
     />
 
     <label> Client Name </label>
     <input
+    name='username'
     onChange={(e) => setClientName(e.target.value)}
     />
 
     <label>Telephone</label>
     <input
+    name='telephone'
     onChange={(e) => setTelephone(e.target.value)}
     />
 
     <label>Email</label>
     <input
+    name='useremail'
     onChange={(e) => setEmail(e.target.value)}
     />
 
