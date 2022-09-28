@@ -1,0 +1,30 @@
+.bottomnav-container{
+  background-color: hsl(226, 54%, 22%);;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+.about{
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2em;
+  cursor:pointer
+
+}
+
+.about:hover{
+  font-weight: 500;
+
+}
