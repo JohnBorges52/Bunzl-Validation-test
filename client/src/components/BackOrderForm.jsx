@@ -5,34 +5,23 @@ import { useEffect } from 'react';
 
 export const BackOrderForm = () => {
 
-
-  
   const [orderNumber, setOrderNumber] = useState("#123456")
   const [clientName, setClientName] = useState('Client Name')
   const [telephone, setTelephone] = useState(0)
-  const [email, setEmail] = useState(0)
+  const [email, setEmail] = useState("")
   
   const [finalMessage, setFinalMessage] = useState('')
 
-  const finalMessageGenerator = (oN, cN) => {
-    
-    
-    
-  }
-
   useEffect(()=> {
-    setFinalMessage(`Hello ${clientName}! Your backorder number ${orderNumber} is ready for pick up at Bunzl Hygiene. The list of items was sent to your e-mail!`)
-    console.log(finalMessage)
-  },[clientName, orderNumber])
+    setFinalMessage(`Hello ${clientName}! Your backorder number ${orderNumber} is ready for pick up at Bunzl Hygiene. The list of the items was sent to your registered e-mail ${email}.`)
+  },[clientName, orderNumber,email])
   
 
-  const sendSMS = (message) => {
-    axios.post("/users/sendSMS", {final})
-
+  const sendSMS = (e) => {
+    e.preventDefault();
+    axios.post("/users/sendsms", {finalMessage, telephone, email})
+    .then(res=>console.log(res.data))
   }
-
-
-
 
 return(
   
@@ -65,31 +54,19 @@ return(
       <span className='final-message-span'> Final Message </span>
       <textarea className='final-message-txtarea' disabled
       value={finalMessage}
-      
       />
-
-      
 
     </div>
     <div className='btns-div'>
       <button className='send-btn'
-      onClick={()=>console.log(orderNumber, clientName, telephone, email)}
+      onClick={(e)=>sendSMS(e)}
       >
         SEND
       </button>
- 
       <button className='cancel-btn'>
         CANCEL
       </button>
- 
- 
     </div>
   </form>
-  
 
-
- 
-
-)
-
-}
+)}
