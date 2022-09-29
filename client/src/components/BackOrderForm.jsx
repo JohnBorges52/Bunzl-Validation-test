@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import '../styles/backorder.scss'
+import axios from "axios";
+import { useEffect } from 'react';
 
 export const BackOrderForm = () => {
+
+
   
   const [orderNumber, setOrderNumber] = useState("#123456")
   const [clientName, setClientName] = useState('Client Name')
@@ -11,11 +15,20 @@ export const BackOrderForm = () => {
   const [finalMessage, setFinalMessage] = useState('')
 
   const finalMessageGenerator = (oN, cN) => {
-
-    let result = ''
-
-    result = `Hello ${cN}! Your backorder number ${oN} is ready for pick up at Bunzl Hygiene. The list of items was sent to your e-mail!`
     
+    
+    
+  }
+
+  useEffect(()=> {
+    setFinalMessage(`Hello ${clientName}! Your backorder number ${orderNumber} is ready for pick up at Bunzl Hygiene. The list of items was sent to your e-mail!`)
+    console.log(finalMessage)
+  },[clientName, orderNumber])
+  
+
+  const sendSMS = (message) => {
+    axios.post("/users/sendSMS", {final})
+
   }
 
 
@@ -51,7 +64,8 @@ return(
     <div className='final-message'>
       <span className='final-message-span'> Final Message </span>
       <textarea className='final-message-txtarea' disabled
-      value={`Hello ${clientName}! Your backorder number ${orderNumber} is ready for pick up at Bunzl Hygiene. The list of items was sent to your e-mail!`}
+      value={finalMessage}
+      
       />
 
       
