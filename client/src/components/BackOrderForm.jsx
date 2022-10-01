@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../styles/backorder.scss'
 import axios from "axios";
 import { useEffect } from 'react';
+import { useRef } from 'react';
 
 export const BackOrderForm = () => {
 
@@ -14,6 +15,8 @@ export const BackOrderForm = () => {
 
   const [currentItem, setCurrentItem] = useState();
   const [itemsList, setItemsList] = useState([]);
+
+  const ref = useRef(null)
 
 
   useEffect(()=> {
@@ -34,7 +37,8 @@ export const BackOrderForm = () => {
     // console.log("CurrentItem:", currentItem);
     console.log("itemList:", itemsList)
     setCurrentItem("");
-
+    ref.current.focus()
+    
   }
 
 
@@ -75,7 +79,9 @@ return(
         className='items--box'
         name='items'
         onChange={(e) => setCurrentItem(e.target.value)}
-       
+        id="item-id"
+        value={currentItem}
+        ref={ref}
         >
 
         </input>

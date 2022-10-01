@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <TopNavBar />
       <MainContainer />
+      <BottomNavBar />
 
 
     </div>

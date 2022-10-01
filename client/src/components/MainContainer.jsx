@@ -8,7 +8,7 @@ export const MainContainer = () => {
     <div className="main-container">
        
        <BackOrderForm />
-       <BottomNavBar />
+   
     </div>
   )
 
