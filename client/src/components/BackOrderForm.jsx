@@ -12,11 +12,14 @@ export const BackOrderForm = () => {
   
   const [finalMessage, setFinalMessage] = useState('')
 
-  const [items, setItems] = useState([])
+  const [currentItem, setCurrentItem] = useState();
+  const [itemsList, setItemsList] = useState([]);
+
 
   useEffect(()=> {
     setFinalMessage(`Hello ${clientName}! Your backorder number ${orderNumber} is ready for pick up at Bunzl Hygiene. The list of the items was sent to your registered e-mail ${email}.`)
-  },[clientName, orderNumber,email])
+    
+  },[clientName, orderNumber,email, currentItem, itemsList])
   
 
   const sendSMS = (e) => {
@@ -24,6 +27,16 @@ export const BackOrderForm = () => {
     axios.post("/users/sendsms", {finalMessage, telephone, email})
     .then(res=>console.log(res.data))
   }
+
+  const addItems = (e) => {
+    e.preventDefault()
+    setItemsList([...itemsList, currentItem])
+    // console.log("CurrentItem:", currentItem);
+    console.log("itemList:", itemsList)
+    setCurrentItem("");
+
+  }
+
 
 return(
   
@@ -57,21 +70,32 @@ return(
     </div>  
       
       <div className='area--div'>
-        <input 
+
+        <input
         className='items--box'
         name='items'
-        onChange={(e) => setItems(e.target.value)}
-        />
-        <button className='add-items-btn'>Add</button>
+        onChange={(e) => setCurrentItem(e.target.value)}
+       
+        >
+
+        </input>
+        <button className='add-items-btn'
+        onClick={(e)=> addItems(e) }
+        > Add </button>
       </div>
+     
   </div>
 
   <div className='items--ready--box'>
-    <div className='items--ready'> aaaaaaaaaaa </div>
-    <div className='items--ready'> asd asd sadasdasd</div>
-    <div className='items--ready'> aad sa sa sadasd </div>
-    
+   
+  {(itemsList.map(element => {
 
+    return(
+
+      <div className='items--ready'>{element}</div>
+      )
+  }))}
+    
   </div>
 
     <div className='final-message'>
