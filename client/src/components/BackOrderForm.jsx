@@ -12,6 +12,8 @@ export const BackOrderForm = () => {
   
   const [finalMessage, setFinalMessage] = useState('')
 
+  const [items, setItems] = useState([])
+
   useEffect(()=> {
     setFinalMessage(`Hello ${clientName}! Your backorder number ${orderNumber} is ready for pick up at Bunzl Hygiene. The list of the items was sent to your registered e-mail ${email}.`)
   },[clientName, orderNumber,email])
@@ -27,28 +29,50 @@ return(
   
   <form className="order-form">
     <label> Order Number </label>
-    <input
+    <input className='input-area'
     name='ordername'
     onChange={(e) => setOrderNumber(e.target.value)}
     />
 
     <label> Client Name </label>
-    <input
+    <input className='input-area'
     name='username'
     onChange={(e) => setClientName(e.target.value)}
     />
 
     <label>Telephone</label>
-    <input
+    <input className='input-area'
     name='telephone'
     onChange={(e) => setTelephone(e.target.value)}
     />
 
     <label>Email</label>
-    <input
+    <input className='input-area'
     name='useremail'
     onChange={(e) => setEmail(e.target.value)}
     />
+
+  <div className='items--div'>
+    <div className='label--div'>Items:
+    </div>  
+      
+      <div className='area--div'>
+        <input 
+        className='items--box'
+        name='items'
+        onChange={(e) => setItems(e.target.value)}
+        />
+        <button className='add-items-btn'>Add</button>
+      </div>
+  </div>
+
+  <div className='items--ready--box'>
+    <div className='items--ready'> aaaaaaaaaaa </div>
+    <div className='items--ready'> asd asd sadasdasd</div>
+    <div className='items--ready'> aad sa sa sadasd </div>
+    
+
+  </div>
 
     <div className='final-message'>
       <span className='final-message-span'> Final Message </span>
@@ -57,6 +81,8 @@ return(
       />
 
     </div>
+
+
     <div className='btns-div'>
       <button className='send-btn'
       onClick={(e)=>sendSMS(e)}

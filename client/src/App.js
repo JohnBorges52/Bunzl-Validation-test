@@ -10,7 +10,7 @@ function App() {
       <TopNavBar />
       <MainContainer />
 
-      <BottomNavBar />
+
     </div>
   );
 }
