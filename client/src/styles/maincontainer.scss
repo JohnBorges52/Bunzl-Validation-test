@@ -29,9 +29,9 @@
 }
 
 .items--box{
-  width: 200px;
+  width: 290px;
   height: 25px;
-  margin-right: 25px;
+  margin-right: 20px;
   border: 1px solid grey;
   border-radius: 4px;
   font-family: 'Montserrat', sans-serif;
@@ -73,4 +73,10 @@
   border: none;
   width: 50px;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+.add-items-btn:hover{
+  background-color: #68b82f;
+  font-weight: 400;
 }

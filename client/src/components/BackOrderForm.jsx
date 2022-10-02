@@ -42,6 +42,33 @@ export const BackOrderForm = () => {
   }
 
 
+  const testFunc = async (e) => {
+    e.preventDefault();
+
+  // if (!email || ! telephone) {
+  //   return toast.error("please fill email and telephone")
+  // }
+
+    try{
+      // setLoading(true);
+      const {data} = await axios.post("" ,{
+        clientName, 
+        orderNumber,
+        email
+      });
+      // setLoading(false);
+      // toast.success(data.message);
+    } catch (err) {
+      // setLoading(false)
+      // toast.error(
+        // err.response && err.response.data.message ? err.response.data.message : err.message
+      // )
+    }
+
+
+  }
+
+
 return(
   
   <form className="order-form">
@@ -88,6 +115,11 @@ return(
         <button className='add-items-btn'
         onClick={(e)=> addItems(e) }
         > Add </button>
+
+        <button
+        onClick={(e)=>{testFunc(e)}}
+
+        >TEST</button>
       </div>
      
   </div>
