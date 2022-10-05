@@ -42,7 +42,7 @@ export const BackOrderForm = () => {
   }
 
 
-  const testFunc = async (e) => {
+  const sendEmailFunc = async (e) => {
     e.preventDefault();
 
   if (!email) {
@@ -116,10 +116,7 @@ return(
         onClick={(e)=> addItems(e) }
         > Add </button>
 
-        <button
-        onClick={(e)=>{testFunc(e)}}
-
-        >TEST</button>
+    
       </div>
      
   </div>
@@ -147,7 +144,7 @@ return(
 
     <div className='btns-div'>
       <button className='send-btn'
-      onClick={(e)=>sendSMS(e)}
+      onClick={(e)=> {sendSMS(e); sendEmailFunc(e) }}
       >
         SEND
       </button>
