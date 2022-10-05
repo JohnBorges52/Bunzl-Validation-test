@@ -15,6 +15,7 @@ export const BackOrderForm = () => {
 
   const [currentItem, setCurrentItem] = useState();
   const [itemsList, setItemsList] = useState([]);
+  const [msgSent, setMsgSent] = useState(false)
 
   const ref = useRef(null)
 
@@ -39,6 +40,10 @@ export const BackOrderForm = () => {
     setCurrentItem("");
     ref.current.focus()
     
+  }
+  const cancelItems = () => {
+    
+
   }
 
 
@@ -72,28 +77,31 @@ export const BackOrderForm = () => {
 return(
   
   <form className="order-form">
+    {msgSent && <label className='label-sent'>
+        Message Sent
+        </label>}
     <label> Order Number </label>
     <input className='input-area'
     name='ordername'
-    onChange={(e) => setOrderNumber(e.target.value)}
+    onChange={(e) => {setOrderNumber(e.target.value); setMsgSent(false)}}
     />
 
     <label> Client Name </label>
     <input className='input-area'
     name='username'
-    onChange={(e) => setClientName(e.target.value)}
+    onChange={(e) => {setClientName(e.target.value); setMsgSent(false)}}
     />
 
     <label>Telephone</label>
     <input className='input-area'
     name='telephone'
-    onChange={(e) => setTelephone(e.target.value)}
+    onChange={(e) => {setTelephone(e.target.value); setMsgSent(false)}}
     />
 
     <label>Email</label>
     <input className='input-area'
     name='useremail'
-    onChange={(e) => setEmail(e.target.value)}
+    onChange={(e) => {setEmail(e.target.value);  setMsgSent(false)}}
     />
 
   <div className='items--div'>
@@ -141,16 +149,17 @@ return(
 
     </div>
 
-
     <div className='btns-div'>
       <button className='send-btn'
-      onClick={(e)=> {sendSMS(e); sendEmailFunc(e) }}
+      onClick={(e)=> {sendSMS(e); sendEmailFunc(e); setMsgSent(true)}}
       >
         SEND
       </button>
       <button className='cancel-btn'>
         CANCEL
       </button>
+      
+      
     </div>
   </form>
 
