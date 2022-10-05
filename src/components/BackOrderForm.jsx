@@ -28,7 +28,7 @@ export const BackOrderForm = () => {
 
   const sendSMS = (e) => {
     e.preventDefault();
-    axios.post("/users/sendsms", {finalMessage, telephone, email})
+    axios.post("https://bunzl-backend.onrender.com/users/sendsms", {finalMessage, telephone, email})
     .then(res=>console.log(res.data))
   }
 
@@ -58,7 +58,7 @@ export const BackOrderForm = () => {
       // setLoading(true);
       await 
 
-      axios.post("/users/sendemail", {clientName, orderNumber,email, itemsList
+      axios.post("https://bunzl-backend.onrender.com/users/sendemail", {clientName, orderNumber,email, itemsList
        }).then(
         res=>console.log(res.data)
       )
