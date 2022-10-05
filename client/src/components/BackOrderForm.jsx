@@ -45,17 +45,19 @@ export const BackOrderForm = () => {
   const testFunc = async (e) => {
     e.preventDefault();
 
-  // if (!email || ! telephone) {
-  //   return toast.error("please fill email and telephone")
-  // }
+  if (!email) {
+    // return toast.error("please fill email and telephone")
+  }
 
     try{
       // setLoading(true);
-      const {data} = await axios.post("" ,{
-        clientName, 
-        orderNumber,
-        email
-      });
+      await 
+
+      axios.post("/users/sendemail", {clientName, orderNumber,email, itemsList
+       }).then(
+        res=>console.log(res.data)
+      )
+
       // setLoading(false);
       // toast.success(data.message);
     } catch (err) {
@@ -64,8 +66,6 @@ export const BackOrderForm = () => {
         // err.response && err.response.data.message ? err.response.data.message : err.message
       // )
     }
-
-
   }
 
 
