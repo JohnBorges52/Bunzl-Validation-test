@@ -38,6 +38,9 @@ export const BackOrderForm = () => {
         console.log("SMS NOT SENT")
       }
     })
+    .catch(e => {
+      console.log(e)
+    })
   }
 
   const addItems = (e) => {
