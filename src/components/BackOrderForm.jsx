@@ -26,21 +26,26 @@ export const BackOrderForm = () => {
   },[clientName, orderNumber,email, currentItem, itemsList])
   
 
-  const sendSMS = (e) => {
+  const sendSMS = async (e) => {
     e.preventDefault();
-    axios.post("https://bunzl-backend.onrender.com/users/sendsms", {finalMessage, telephone, email})
-    // axios.post("/users/sendsms", {finalMessage, telephone, email})
-    .then(res=> {
+    try{
 
-      if(res) {
-        console.log("SMS SENT")  
-      } else {
-        console.log("SMS NOT SENT")
-      }
-    })
-    .catch(error => {
-      console.log(error.response.data)
-    })
+      await axios.post("https://bunzl-backend.onrender.com/users/sendsms", {finalMessage, telephone, email})
+    //  await axios.post("/users/sendsms", {finalMessage, telephone, email})
+      .then(res=> {
+        
+        if(res) {
+          console.log("SMS SENT")  
+        } else {
+          console.log("SMS NOT SENT")
+        }
+      })
+    } catch (err) {
+      console.log(err)
+    }
+    // .catch(error => {
+    //   console.log(error.response.data)
+    // })
   }
 
   const addItems = (e) => {
