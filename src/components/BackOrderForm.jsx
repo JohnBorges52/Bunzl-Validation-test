@@ -29,7 +29,15 @@ export const BackOrderForm = () => {
   const sendSMS = (e) => {
     e.preventDefault();
     axios.post("https://bunzl-backend.onrender.com/users/sendsms", {finalMessage, telephone, email})
-    .then(res=>console.log(res.data))
+    // axios.post("/users/sendsms", {finalMessage, telephone, email})
+    .then(res=> {
+
+      if(res) {
+        console.log("SMS SENT")  
+      } else {
+        console.log("SMS NOT SENT")
+      }
+    })
   }
 
   const addItems = (e) => {
@@ -41,11 +49,6 @@ export const BackOrderForm = () => {
     ref.current.focus()
     
   }
-  const cancelItems = () => {
-    
-
-  }
-
 
   const sendEmailFunc = async (e) => {
     e.preventDefault();
@@ -59,9 +62,15 @@ export const BackOrderForm = () => {
       await 
 
       axios.post("https://bunzl-backend.onrender.com/users/sendemail", {clientName, orderNumber,email, itemsList
-       }).then(
-        res=>console.log(res.data)
-      )
+      // axios.post("/users/sendemail", {clientName, orderNumber,email, itemsList
+       }).then(res=> {
+
+        if(res) {
+          console.log("EMAIL SENT")  
+        } else {
+          console.log("EMAIL NOT SENT")
+        }
+      })
 
       // setLoading(false);
       // toast.success(data.message);
@@ -151,9 +160,14 @@ return(
 
     <div className='btns-div'>
       <button className='send-btn'
-      onClick={(e)=> {sendSMS(e); sendEmailFunc(e); setMsgSent(true)}}
+      onClick={(e)=> {sendEmailFunc(e); setMsgSent(true)}}
       >
-        SEND
+       EMAIL
+      </button>
+      <button className='send-btn'
+      onClick={(e)=> {sendSMS(e); setMsgSent(true)}}
+      >
+         SMS
       </button>
       <button className='cancel-btn'>
         CANCEL
