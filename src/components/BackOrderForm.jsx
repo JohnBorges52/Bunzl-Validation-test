@@ -30,8 +30,8 @@ export const BackOrderForm = () => {
     e.preventDefault();
     try{
 
-      // await axios.post("https://bunzl-backend.onrender.com/users/sendsms", {finalMessage, telephone, email})
-     await axios.post("/users/sendsms", {finalMessage, telephone, email})
+      await axios.post("https://bunzl-backend.onrender.com/users/sendsms", {finalMessage, telephone, email})
+    //  await axios.post("/users/sendsms", {finalMessage, telephone, email})
       .then(res=> {
         
         if(res) {
@@ -69,8 +69,8 @@ export const BackOrderForm = () => {
       // setLoading(true);
       await 
 
-      // axios.post("https://bunzl-backend.onrender.com/users/sendemail", {clientName, orderNumber,email, itemsList
-      axios.post("/users/sendemail", {clientName, orderNumber,email, itemsList
+      axios.post("https://bunzl-backend.onrender.com/users/sendemail", {clientName, orderNumber,email, itemsList
+      // axios.post("/users/sendemail", {clientName, orderNumber,email, itemsList
        }).then(res=> {
 
         if(res) {
