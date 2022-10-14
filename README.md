@@ -1,7 +1,7 @@
 # Bunzl Customer`s BackOrder Notification System [in development]
 
 ### Problem
-Sometimes, customers goes into the store and cannot find their items due to stock shortage. The current way to handle this is to right the customer's phone and name and give them a call when the item arrives. This project aims to solve this problem by sending them a text message to inform that their order is ready, and an e-mail with the items that are ready.
+Sometimes, customers go into the store and cannot find their items due to stock shortage. The current way to handle this is to right the customer's phone and name and give them a call when the item arrives. This project aims to solve this problem by sending them a text message to inform them that their order is ready, and an e-mail with the items that are ready.
 
  
 ## Tech Stack
