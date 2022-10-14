@@ -16,4 +16,4 @@ Sometimes, customers goes into the store and cannot find their items due to stoc
 
 - You can access the project website here => https://bunzsmsemailtest.onrender.com/
 - You can check the backend project here => https://github.com/JohnBorges52/Bunzl-Validation-backend
-- Clone this repository, install the dependencies using NPM START.
+- Clone this repository, install the dependencies using NPM Install and run the application by NPM Start.
