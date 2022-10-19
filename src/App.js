@@ -3,14 +3,19 @@ import './App.css';
 import { TopNavBar } from './components/TopNavBar';
 import { BottomNavBar } from './components/BottomNavBar';
 import { MainContainer } from './components/MainContainer';
+import { Login } from './components/Login'
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <TopNavBar />
-      <MainContainer />
-      <BottomNavBar />
+      <Routes>
+        <Route path="/" element={<MainContainer />} />
+        <Route path="/login" element={<Login />} />
 
+      </Routes>
+      <BottomNavBar />
 
     </div>
   );
