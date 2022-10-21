@@ -11,6 +11,7 @@ export const Login = ( props) => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('');
   const [currentUser, setCurrentUser] = useState('');
+  const [loginBtn, setLoginBtn] = useState(true)
   
   let navigate = useNavigate();
 
@@ -29,7 +30,7 @@ export const Login = ( props) => {
         // console.log(res.data)
         setCurrentUser(res.data)
         localStorage.setItem('user', JSON.stringify(res.data[0].email))
-        navigate("/")
+        navigate("/login")
         window.location.reload(false)
       }
       
@@ -37,13 +38,28 @@ export const Login = ( props) => {
 
   }
 
+  const onLogout = (e) => {
+    e.preventDefault()
+
+    localStorage.clear();
+    setLoginBtn(true)
+    navigate("/login")
+    window.location.reload(false)
+
+
+
+  }
+
   useEffect(() => {
+
+  console.log(loginBtn)
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
+      setLoginBtn(false)
       const foundUser = JSON.parse(loggedInUser)
       setCurrentUser(foundUser);
       console.log(currentUser)
-    }
+    } 
   }, [])
 
   return(
@@ -52,17 +68,22 @@ export const Login = ( props) => {
         <div className='login-card'>
       <form className="login-form">
 
-      <h2 className='login-title'>LOG IN</h2>
+      {loginBtn &&<h2 className='login-title'>LOG IN</h2>}
 
-      <label className='login-form-label'>Email</label>
-      <input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value)}}></input>
+      {!loginBtn && <span className='welcome'> Welcome <span className='welcome-user-span'>{localStorage.getItem("user")}</span></span>}
+      {!loginBtn && <a href="#" className='my-history'> My History</a>}
+
+
+      {loginBtn && <label className='login-form-label'>Email</label>}
+      {loginBtn &&<input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value)}}></input>}
       {error === "User not Found" && <span className='login-form-error'>{error}</span>}
 
-      <label className='login-form-label'>Password</label>
-      <input className='login-form-input' type="password" onChange={(e)=>{setPassword(e.target.value)}}></input>
+      {loginBtn && <label className='login-form-label'>Password</label>}
+      {loginBtn && <input className='login-form-input' type="password" onChange={(e)=>{setPassword(e.target.value)}}></input>}
       {error === "Wrong Password" && <span className='login-form-error'>{error}</span>}
 
-      <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button>
+      {loginBtn && <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button> }
+      {!loginBtn && <button className='logout-btn' onClick={(e)=> onLogout(e)}> Logout </button> }
 
       <a className='forgot-password' href="#"> Forgot your password? </a>
 

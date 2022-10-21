@@ -53,6 +53,23 @@
 
 }
 
+.logout-btn{
+  width: 100%;
+  max-width: 350px;
+  height: 40px;
+  background-color: rgb(238, 69, 57);
+  border-radius: 7px;
+  border: none;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.logout-btn:hover{
+  background-color: rgb(248, 38, 23);
+}
+
 .login-title{
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -93,4 +110,37 @@
   display: flex;
   justify-content: end;
   margin-right: 5px;
+}
+.welcome{
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 30px;
+  
+}
+.welcome-user-span{
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(247, 117, 31);
+  
+}
+.my-history{
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  margin-top: 15px;
+  color: rgb(63, 63, 63);
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+.my-history:hover{
+  color: rgb(107, 15, 177);
+  font-weight: 500;
+  border: 1px solid rgb(129, 129, 129);
+
+
+
+
 }

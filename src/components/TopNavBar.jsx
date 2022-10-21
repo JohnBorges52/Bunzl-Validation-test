@@ -3,16 +3,15 @@ import '../styles/topnav.scss'
 
 export const TopNavBar = () => {
 
+  const user = localStorage.getItem("user");
   
   return(
       <div className="topnav-container">
-        <div className="logo">
+        <a href='/' className="logo">
           
-        </div> 
-        <div className='login'>
-        LOGIN
-
-        </div>
+        </a>
+        {!user && <a href='/login' className='login'>LOGIN</a>}
+        {user && <a href='/login' className='login'>PROFILE</a>}
 
       </div>
   )
