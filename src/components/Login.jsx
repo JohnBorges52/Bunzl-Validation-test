@@ -19,17 +19,18 @@ export const Login = ( props) => {
 
     axios.post('/users/userlogin', {email, password})
     .then(res => {
-      if( res.data === "User not Found") {
+      if(res.data === "User not Found") {
         setError("User not Found")
       }
-      if(res.data === "Wrong Password") {
-        setError("Wrong Password")
+      else if(res.data === "Wrong Password") {
+        setError("Wrong Password") 
       }
-      if(res.data) {
+      else {
+        // console.log(res.data)
         setCurrentUser(res.data)
         localStorage.setItem('user', JSON.stringify(res.data[0].email))
-        // navigate("/")
-        // window.location.reload(false)
+        navigate("/")
+        window.location.reload(false)
       }
       
     })
@@ -59,7 +60,7 @@ export const Login = ( props) => {
 
       <label className='login-form-label'>Password</label>
       <input className='login-form-input' type="password" onChange={(e)=>{setPassword(e.target.value)}}></input>
-      {error === "User not Found" && <span className='login-form-error'>{error}</span>}
+      {error === "Wrong Password" && <span className='login-form-error'>{error}</span>}
 
       <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button>
 
