@@ -20,6 +20,7 @@
   align-items: flex-start;
   width: 100%;
   max-width: 350px;
+  margin-top: 15px;
 }
 
 
@@ -27,7 +28,7 @@
   height: 40px;
   font-family: 'Montserrat', sans-serif;
   border-radius: 7px;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
   border: 1px solid rgba(128, 128, 128, 0.384) ;
   width: 100%;
   max-width: 350px;
@@ -45,6 +46,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1em;
   cursor: pointer;
+  margin-top: 15px;
 }
 .login-btn:hover{
   background-color: rgb(56, 56, 252);
@@ -55,7 +57,7 @@
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   
 }
 .login-card{
@@ -74,9 +76,21 @@
 
 .forgot-password {
   text-decoration: none;
-  margin-top: 20px;
+  margin-top: 15px;
   color: grey;
 }
 .forgot-password:hover{
   color: rgb(76, 1, 146);
+}
+.login-form-error{
+  width: 100%;
+  max-width: 350px;
+  color: red;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.85em;
+  display: flex;
+  justify-content: end;
+  margin-right: 5px;
 }
