@@ -65,7 +65,7 @@ export const Login = ( props) => {
   return(
     <div className="login-container">
 
-        <div className='login-card'>
+      <div className='login-card'>
       <form className="login-form">
 
       {loginBtn &&<h2 className='login-title'>LOG IN</h2>}

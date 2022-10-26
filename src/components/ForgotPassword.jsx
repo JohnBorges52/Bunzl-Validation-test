@@ -1,6 +1,38 @@
+import axios from 'axios';
 import React from 'react'
+import { useState } from 'react';
+
 
 export default function ForgotPassword() {
+  const [error, setError] = useState(false)
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const fetchEmail = (e) => {
+    e.preventDefault()
+    setLoading(true)
+    axios.post('/users/forgot-password', {email})
+    .then(res => {
+      if(res.data === "User not Found") {
+        setError(true)
+        setLoading(false)
+      } else {
+        setLoading(true)
+
+         
+
+
+
+
+        setLoading(false)
+        // go somewhere
+      }
+    })
+
+  }
+
+
+  
   return (
     <div className="login-container">
 
@@ -9,15 +41,19 @@ export default function ForgotPassword() {
 
       <h2 className='login-title'>RESET PASSWORD</h2>
 
+      {error && <span className='error'>error</span>}
+      <br/>
+
+      {loading && "a" }
+      {!loading &&
+      <>
       <label className='login-form-label'>Email</label>
-      <input className='login-form-input' type="email" onChange={()=>{}} ></input>
-  
+      <input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value); setError(false)}} ></input>
 
-      <button className='login-btn' > Reset </button>
-    
-
-      <a className='forgot-password' href="/login"> Go back to Login</a>
-
+      <button className='login-btn' onClick={(e)=> {fetchEmail(e)}}> Reset </button>
+      <a className='forgot-password' href="/login"> Go back to Login </a>
+      </>
+    }
       </form>
 
     </div>
