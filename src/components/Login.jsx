@@ -75,7 +75,7 @@ export const Login = ( props) => {
 
 
       {loginBtn && <label className='login-form-label'>Email</label>}
-      {loginBtn &&<input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value)}}></input>}
+      {loginBtn &&<input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="E-mail"></input>}
       {error === "User not Found" && <span className='login-form-error'>{error}</span>}
 
       {loginBtn && <label className='login-form-label'>Password</label>}
@@ -85,7 +85,7 @@ export const Login = ( props) => {
       {loginBtn && <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button> }
       {!loginBtn && <button className='logout-btn' onClick={(e)=> onLogout(e)}> Logout </button> }
 
-      <a className='forgot-password' href="#"> Forgot your password? </a>
+      <a className='forgot-password' href="/forgot-password"> Forgot your password? </a>
 
       </form>
 

@@ -5,6 +5,7 @@ import { BottomNavBar } from './components/BottomNavBar';
 import { MainContainer } from './components/MainContainer';
 import { Login } from './components/Login'
 import { Routes, Route, useNavigate } from "react-router-dom";
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={user ? <MainContainer /> : <Login />} />
         <Route path="/backorder" element={<MainContainer />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
       <BottomNavBar />
 

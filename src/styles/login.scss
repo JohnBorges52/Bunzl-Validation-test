@@ -91,6 +91,11 @@
   
 }
 
+.login-card:hover{
+  background-color: rgba(0, 0, 0, 0.007);
+
+}
+
 .forgot-password {
   text-decoration: none;
   margin-top: 15px;
@@ -108,7 +113,7 @@
   font-weight: 400;
   font-size: 0.85em;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 5px;
 }
 .welcome{
