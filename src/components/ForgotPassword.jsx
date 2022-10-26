@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function ForgotPassword() {
   const [error, setError] = useState(false)
   const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const fetchEmail = (e) => {
     e.preventDefault()
@@ -44,7 +44,9 @@ export default function ForgotPassword() {
       {error && <span className='error'>error</span>}
       <br/>
 
-      {loading && "a" }
+      {loading && <div className='loading-status'>
+
+      </div> }
       {!loading &&
       <>
       <label className='login-form-label'>Email</label>
