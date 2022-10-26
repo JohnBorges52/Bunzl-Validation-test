@@ -1,12 +1,16 @@
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
+import {useNavigate } from "react-router-dom";
 
 
 export default function ForgotPassword() {
   const [error, setError] = useState(false)
   const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState(false)
+  
+  let navigate = useNavigate();
 
   const fetchEmail = (e) => {
     e.preventDefault()
@@ -15,17 +19,16 @@ export default function ForgotPassword() {
     .then(res => {
       if(res.data === "User not Found") {
         setError(true)
+        setMessage(false)
         setLoading(false)
-      } else {
-        setLoading(true)
-
-         
-
-
-
-
+      } if (res.data === "Code Sent") {
         setLoading(false)
-        // go somewhere
+        setMessage(true)
+
+        setTimeout(()=>{
+          navigate("/change-password")
+        },2500)
+
       }
     })
 
@@ -41,19 +44,35 @@ export default function ForgotPassword() {
 
       <h2 className='login-title'>RESET PASSWORD</h2>
 
-      {error && <span className='error'>error</span>}
+      {error && <span className='error'> User not Found! </span>}
+      
+
+      {loading &&
+      <>
+      <div className='loading-status'>
+
+      </div> 
       <br/>
 
-      {loading && <div className='loading-status'>
+      <div>
+        <span> Sending Message to your e-mail...</span>
+      </div>
+      </>
+      }
 
-      </div> }
       {!loading &&
       <>
       <label className='login-form-label'>Email</label>
       <input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value); setError(false)}} ></input>
 
       <button className='login-btn' onClick={(e)=> {fetchEmail(e)}}> Reset </button>
+      {message && <span className='successfully-generated-code'>
+        The code Has been sent to your e-mail
+        <br/>
+        Redirecting...
+        </span>}
       <a className='forgot-password' href="/login"> Go back to Login </a>
+
       </>
     }
       </form>

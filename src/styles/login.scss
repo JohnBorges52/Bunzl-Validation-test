@@ -164,9 +164,47 @@
   
   
 }
+
 @keyframes rotate {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+.error {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  background-color: rgb(243, 22, 22);
+  width: 100%;
+  max-width: 350px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.successfully-generated-code{
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: green;
+  width: 100%;
+  max-width: 350px;
+  font-weight: 500;
+}
+
+.login-card-change{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(128, 128, 128, 0.363);
+  width: 35%;
+  min-width: 312px;
+  margin: 100px auto 0;
+  background-color: rgba(128, 128, 128, 0.007);
+  height: 70vh;
+  border-radius: 7px;
+  margin-bottom: 150px;
 }
