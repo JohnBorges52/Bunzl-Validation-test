@@ -35,7 +35,8 @@ export default function ChangePassword() {
     setLoading(true)
 
     if(pswValidation(password, passwordConfirmation)) {
-      axios.post("/users/change-password", {email, code, password})
+      // axios.post("/users/change-password", {email, code, password})
+      axios.post("https://bunzl-backend.onrender.com/users/change-password", {email, code, password})
       .then((res)=>{
         if(res.data === "User not Found") {
           console.log('res.data', res.data)
@@ -52,7 +53,8 @@ export default function ChangePassword() {
           setErrorUser(false)
           setMessage(true)
           setLoading(false)
-          navigate("/login")
+          // navigate("/login")
+          navigate("https://bunzl-backend.onrender.com/users/login")
         }, 2500)
 
         }
@@ -108,7 +110,7 @@ export default function ChangePassword() {
         <br/>
         Redirecting...
         </span>}
-      <a className='forgot-password' href="/login"> Go back to Login </a>
+      <a className='forgot-password' href="https://bunzl-backend.onrender.com/users/login"> Go back to Login </a>
 
       </>
     }

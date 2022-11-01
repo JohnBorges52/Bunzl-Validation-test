@@ -15,7 +15,8 @@ export default function ForgotPassword() {
   const fetchEmail = (e) => {
     e.preventDefault()
     setLoading(true)
-    axios.post('/users/forgot-password', {email})
+    // axios.post('/users/forgot-password', {email})
+    axios.post('https://bunzl-backend.onrender.com/users/forgot-password', {email})
     .then(res => {
       if(res.data === "User not Found") {
         setError(true)
@@ -24,10 +25,10 @@ export default function ForgotPassword() {
       } if (res.data === "Code Sent") {
         
 
-        setTimeout(()=>{
+        setTimeout(() => {
           setLoading(false)
           setMessage(true)
-          navigate("/change-password")
+          navigate("https://bunzl-backend.onrender.com/users/change-password")
         },2500)
 
       }
@@ -66,13 +67,13 @@ export default function ForgotPassword() {
       <label className='login-form-label'>Email</label>
       <input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value); setError(false)}} ></input>
 
-      <button className='login-btn' onClick={(e)=> {fetchEmail(e)}}> Reset </button>
+      <button className='login-btn' onClick={(e)=>{ fetchEmail(e)}}> Reset </button>
       {message && <span className='successfully-generated-code'>
         The code Has been sent to your e-mail
         <br/>
         Redirecting...
         </span>}
-      <a className='forgot-password' href="/login"> Go back to Login </a>
+      <a className='forgot-password' href="https://bunzl-backend.onrender.com/users/login"> Go back to Login </a>
 
       </>
     }
