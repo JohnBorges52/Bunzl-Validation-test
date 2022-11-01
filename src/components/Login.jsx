@@ -37,7 +37,7 @@ export const Login = ( props) => {
         setCurrentUser(res.data)
         localStorage.setItem('user', JSON.stringify(res.data[0].email))
         setLoading(false)
-        navigate("/login")
+        navigate("/")
         window.location.reload(false)
       }
       
