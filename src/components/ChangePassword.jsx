@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import {useNavigate } from "react-router-dom";
+
 
 export default function ChangePassword() {
 
@@ -8,6 +10,8 @@ export default function ChangePassword() {
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
+  let navigate = useNavigate();
+
 
 
 
@@ -42,9 +46,13 @@ export default function ChangePassword() {
           setLoading(false)
         }
         if(res.data === "Password updated") {
-          setError(false)
-          setMessage(true)
-          setLoading(false)
+          
+          setTimeout(()=>{
+            setError(false)
+            setMessage(true)
+            setLoading(false)
+            navigate("/login")
+          }, 2500)
 
         }
       })
@@ -58,7 +66,8 @@ export default function ChangePassword() {
       <div className='login-card-change'>
       <form className="login-form">
 
-      <h2 className='login-title'>CHANGE YOUR PASSWORD</h2>
+      {!loading && <h2 className='login-title'> CHANGE YOUR PASSWORD</h2>}
+      {loading && <h2 className='login-title'>CHANGING YOUR PASSWORD</h2>}
 
       {error && <span className='error'> User not Found! </span>}
       {notmatchpsw && <span className='error'> Passwords do not match </span>}
@@ -72,7 +81,7 @@ export default function ChangePassword() {
       <br/>
 
       <div>
-        <span> Sending Message to your e-mail...</span>
+        <span> Redirecting...</span>
       </div>
       </>
       }
