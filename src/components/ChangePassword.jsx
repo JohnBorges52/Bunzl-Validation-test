@@ -54,7 +54,7 @@ export default function ChangePassword() {
           setMessage(true)
           setLoading(false)
           // navigate("/login")
-          navigate("https://bunzl-backend.onrender.com/users/login")
+          navigate("/login")
         }, 2500)
 
         }
@@ -110,7 +110,7 @@ export default function ChangePassword() {
         <br/>
         Redirecting...
         </span>}
-      <a className='forgot-password' href="https://bunzl-backend.onrender.com/users/login"> Go back to Login </a>
+      <a className='forgot-password' href="/login"> Go back to Login </a>
 
       </>
     }

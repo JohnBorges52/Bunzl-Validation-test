@@ -28,7 +28,7 @@ export default function ForgotPassword() {
         setTimeout(() => {
           setLoading(false)
           setMessage(true)
-          navigate("https://bunzl-backend.onrender.com/users/change-password")
+          navigate("/change-password")
         },2500)
 
       }
@@ -73,7 +73,7 @@ export default function ForgotPassword() {
         <br/>
         Redirecting...
         </span>}
-      <a className='forgot-password' href="https://bunzl-backend.onrender.com/users/login"> Go back to Login </a>
+      <a className='forgot-password' href="/login"> Go back to Login </a>
 
       </>
     }

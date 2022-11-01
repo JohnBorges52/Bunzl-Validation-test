@@ -37,7 +37,7 @@ export const Login = ( props) => {
         setCurrentUser(res.data)
         localStorage.setItem('user', JSON.stringify(res.data[0].email))
         setLoading(false)
-        navigate("https://bunzl-backend.onrender.com/users/login")
+        navigate("/login")
         window.location.reload(false)
       }
       
@@ -88,7 +88,7 @@ export const Login = ( props) => {
       <br/>
 
       <div>
-        <span> Sending Message to your e-mail...</span>
+        <span> Loging in...</span>
       </div>
       </>
       }
@@ -113,7 +113,7 @@ export const Login = ( props) => {
       {loginBtn && <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button> }
       {!loginBtn && <button className='logout-btn' onClick={(e)=> onLogout(e)}> Logout </button> }
 
-      <a className='forgot-password' href="https://bunzl-backend.onrender.com/users/forgot-password"> Forgot your password? </a>
+      <a className='forgot-password' href="/forgot-password"> Forgot your password? </a>
 
       </>}
       </form>
