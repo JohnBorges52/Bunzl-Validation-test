@@ -12,24 +12,31 @@ export const Login = ( props) => {
   const [error, setError] = useState('');
   const [currentUser, setCurrentUser] = useState('');
   const [loginBtn, setLoginBtn] = useState(true)
-  
+  const [loading, setLoading] = useState(false)
+
   let navigate = useNavigate();
 
   const onLogin = (e) => {
-    e.preventDefault()
 
-    axios.post('/users/userlogin', {email, password})
+    e.preventDefault()
+    setLoading(true)
+
+    // axios.post('/users/userlogin', {email, password})
+    axios.post('https://bunzl-backend.onrender.com/users/userlogin', {email, password})
     .then(res => {
       if(res.data === "User not Found") {
         setError("User not Found")
+        setLoading(false)
       }
       else if(res.data === "Wrong Password") {
         setError("Wrong Password") 
+        setLoading(false)
       }
       else {
         // console.log(res.data)
         setCurrentUser(res.data)
         localStorage.setItem('user', JSON.stringify(res.data[0].email))
+        setLoading(false)
         navigate("/login")
         window.location.reload(false)
       }
@@ -39,10 +46,13 @@ export const Login = ( props) => {
   }
 
   const onLogout = (e) => {
+    
     e.preventDefault()
+    setLoading(true)
 
     localStorage.clear();
     setLoginBtn(true)
+    setLoading(false)
     navigate("/login")
     window.location.reload(false)
 
@@ -50,9 +60,9 @@ export const Login = ( props) => {
 
   }
 
+  console.log(loginBtn)
   useEffect(() => {
 
-  console.log(loginBtn)
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       setLoginBtn(false)
@@ -64,9 +74,27 @@ export const Login = ( props) => {
 
   return(
     <div className="login-container">
+      
 
       <div className='login-card'>
+        
+        
       <form className="login-form">
+      {loading &&
+      <>
+      <div className='loading-status'>
+
+      </div> 
+      <br/>
+
+      <div>
+        <span> Sending Message to your e-mail...</span>
+      </div>
+      </>
+      }
+        
+        {!loading &&
+        <>
 
       {loginBtn &&<h2 className='login-title'>LOG IN</h2>}
 
@@ -87,8 +115,10 @@ export const Login = ( props) => {
 
       <a className='forgot-password' href="/forgot-password"> Forgot your password? </a>
 
+      </>}
       </form>
 
+    
     </div>
 
 
