@@ -113,7 +113,7 @@ export const Login = ( props) => {
       {loginBtn && <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button> }
       {!loginBtn && <button className='logout-btn' onClick={(e)=> onLogout(e)}> Logout </button> }
 
-      <a className='forgot-password' href="/forgot-password"> Forgot your password? </a>
+      <a className='forgot-password' href="https://bunzl-backend.onrender.com/users/forgot-password"> Forgot your password? </a>
 
       </>}
       </form>
