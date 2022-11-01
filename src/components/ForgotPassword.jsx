@@ -22,10 +22,11 @@ export default function ForgotPassword() {
         setMessage(false)
         setLoading(false)
       } if (res.data === "Code Sent") {
-        setLoading(false)
-        setMessage(true)
+        
 
         setTimeout(()=>{
+          setLoading(false)
+          setMessage(true)
           navigate("/change-password")
         },2500)
 

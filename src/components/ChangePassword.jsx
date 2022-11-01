@@ -5,7 +5,8 @@ import {useNavigate } from "react-router-dom";
 
 export default function ChangePassword() {
 
-  const [error, setError] = useState(false)
+  const [errorCode, setErrorCode] = useState(false)
+  const [errorUser, setErrorUser] = useState(false)
   const [email, setEmail] = useState('')
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
@@ -38,21 +39,21 @@ export default function ChangePassword() {
       .then((res)=>{
         if(res.data === "User not Found") {
           console.log('res.data', res.data)
-          setError(true)
           setLoading(false)
+          setErrorUser(true)
         }
         if(res.data === "Wrong Code"){
-          setError(true)
+          setErrorCode(true)
           setLoading(false)
         }
         if(res.data === "Password updated") {
-          
           setTimeout(()=>{
-            setError(false)
-            setMessage(true)
-            setLoading(false)
-            navigate("/login")
-          }, 2500)
+          setErrorCode(false)
+          setErrorUser(false)
+          setMessage(true)
+          setLoading(false)
+          navigate("/login")
+        }, 2500)
 
         }
       })
@@ -69,7 +70,8 @@ export default function ChangePassword() {
       {!loading && <h2 className='login-title'> CHANGE YOUR PASSWORD</h2>}
       {loading && <h2 className='login-title'>CHANGING YOUR PASSWORD</h2>}
 
-      {error && <span className='error'> User not Found! </span>}
+      {errorUser && <span className='error'> User not Found! </span>}
+      {errorCode && <span className='error'> Wrong Code </span>}
       {notmatchpsw && <span className='error'> Passwords do not match </span>}
       
 
@@ -89,16 +91,16 @@ export default function ChangePassword() {
       {!loading &&
       <>
       <label className='login-form-label'>Email</label>
-      <input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value); setError(false); setNotMatchpsw(false)}} ></input>
+      <input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value); setErrorCode(false);setErrorUser(false); setNotMatchpsw(false)}} ></input>
       
       <label className='login-form-label'>Code</label>
-      <input className='login-form-input' type="text" onChange={(e)=>{setCode(e.target.value); setError(false); setNotMatchpsw(false)}} ></input>
+      <input className='login-form-input' type="text" onChange={(e)=>{setCode(e.target.value); setErrorCode(false);setErrorUser(false); setNotMatchpsw(false)}} ></input>
 
       <label className='login-form-label'>Password</label>
-      <input className='login-form-input' type="password" onChange={(e)=>{setPassword(e.target.value); setError(false); setNotMatchpsw(false)}} ></input>
+      <input className='login-form-input' type="password" onChange={(e)=>{setPassword(e.target.value); setErrorCode(false);setErrorUser(false); setNotMatchpsw(false)}} ></input>
       
       <label className='login-form-label'>Password Confirmation</label>
-      <input className='login-form-input' type="password" onChange={(e)=>{setPasswordConfirmation(e.target.value); setError(false); setNotMatchpsw(false)}} ></input>
+      <input className='login-form-input' type="password" onChange={(e)=>{setPasswordConfirmation(e.target.value); setErrorCode(false);setErrorUser(false); setNotMatchpsw(false)}} ></input>
 
       <button className='login-btn' onClick={(e)=> {changeEmail(e)}} > Change </button>
       {message && <span className='successfully-generated-code'>
