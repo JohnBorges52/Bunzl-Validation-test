@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={user ? <MainContainer /> : <Login />} />
         <Route path="/backorder" element={<MainContainer />} />
-        <Route path="https://bunzsmsemailtest.onrender.com/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/change-password" element={<ChangePassword />} />
 
