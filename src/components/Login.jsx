@@ -115,8 +115,7 @@ export const Login = ( props) => {
       <>
 
       {loginBtn &&<h2 className='login-title'>LOG IN</h2>}
-      {error === "User not Found" && <span className='error'>{error}</span>}
-      {error === "Wrong Password" && <span className='error'>{error}</span>}
+     
 
       {!loginBtn && <span className='welcome'> Welcome <span className='welcome-user-span'>{localStorage.getItem("user")}</span></span>}
       {!loginBtn && <a href="#" className='my-history'> My History</a>}
