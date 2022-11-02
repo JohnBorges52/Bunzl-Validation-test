@@ -12,6 +12,10 @@ function App() {
 
   const user = localStorage.getItem("user");
 
+
+
+
+
   return (
     <div className="App">
       <TopNavBar />
