@@ -21,8 +21,8 @@ export const Login = ( props) => {
     e.preventDefault()
     setLoading(true)
 
-    // axios.post('/users/userlogin', {email, password})
-    axios.post('https://bunzl-backend.onrender.com/users/userlogin', {email, password})
+    axios.post('/users/userlogin', {email, password})
+    // axios.post('https://bunzl-backend.onrender.com/users/userlogin', {email, password})
     .then(res => {
       if(res.data === "User not Found") {
         setError("User not Found")
@@ -115,19 +115,22 @@ export const Login = ( props) => {
       <>
 
       {loginBtn &&<h2 className='login-title'>LOG IN</h2>}
+      {error === "User not Found" && <span className='error'>{error}</span>}
+      {error === "Wrong Password" && <span className='error'>{error}</span>}
 
       {!loginBtn && <span className='welcome'> Welcome <span className='welcome-user-span'>{localStorage.getItem("user")}</span></span>}
       {!loginBtn && <a href="#" className='my-history'> My History</a>}
 
 
       {loginBtn &&<input className='login-form-input-email' id="email" type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder=" "></input>}
-      {loginBtn && <label for="email" className='login-form-label-email'>E-mail </label>}
-      {error === "User not Found" && <span className='login-form-error'>{error}</span>}
+      {loginBtn && <label for="email" className='login-form-label-email'>&nbsp;&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp; </label>}
+     
 
       {loginBtn && <input className='login-form-input-password' id="password" type="password" onChange={(e)=>{setPassword(e.target.value)}} placeholder=" "></input>}
-      {loginBtn && <label for="password" className='login-form-label-password'>Password</label>}
-      {error === "Wrong Password" && <span className='login-form-error'>{error}</span>}
-
+      {loginBtn && <label for="password" className='login-form-label-password'>&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;</label>}
+      
+      {error === "User not Found" && <span className='error'>{error}</span>}
+      {error === "Wrong Password" && <span className='error'>{error}</span>}
       {loginBtn && <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button> }
       {!loginBtn && <button className='logout-btn' onClick={(e)=> onLogout(e)}> Logout </button> }
 
