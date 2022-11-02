@@ -111,8 +111,8 @@ export const Login = ( props) => {
       </>
       }
         
-        {!loading &&
-        <>
+    {!loading &&
+      <>
 
       {loginBtn &&<h2 className='login-title'>LOG IN</h2>}
 
@@ -120,12 +120,12 @@ export const Login = ( props) => {
       {!loginBtn && <a href="#" className='my-history'> My History</a>}
 
 
-      {loginBtn && <label className='login-form-label'>Email</label>}
-      {loginBtn &&<input className='login-form-input' type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="E-mail"></input>}
+      {loginBtn &&<input className='login-form-input-email' id="email" type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder=" "></input>}
+      {loginBtn && <label for="email" className='login-form-label-email'>E-mail </label>}
       {error === "User not Found" && <span className='login-form-error'>{error}</span>}
 
-      {loginBtn && <label className='login-form-label'>Password</label>}
-      {loginBtn && <input className='login-form-input' type="password" onChange={(e)=>{setPassword(e.target.value)}}></input>}
+      {loginBtn && <input className='login-form-input-password' id="password" type="password" onChange={(e)=>{setPassword(e.target.value)}} placeholder=" "></input>}
+      {loginBtn && <label for="password" className='login-form-label-password'>Password</label>}
       {error === "Wrong Password" && <span className='login-form-error'>{error}</span>}
 
       {loginBtn && <button className='login-btn' onClick={(e)=> onLogin(e)}> Login </button> }

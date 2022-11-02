@@ -12,28 +12,96 @@
   width: 70%;
   align-items: center;
   margin: 0 auto;
+  position: relative;
+
 }
-.login-form-label{
-  padding: 0;
+
+
+.login-form-label-email{
+  
   font-family: 'Montserrat', sans-serif;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 350px;
-  margin-top: 15px;
+  font-size: 1em;
+  width: fit-content;
+  position: absolute;
+  top: 3.5em;
+  cursor: text;
+  transition: top 200ms ease-in,
+  left 200ms ease-in,
+  font-size 200ms ease-in;
+  margin: 0;
+  background-color: white
+
+}
+
+.login-form-input-email:focus ~ .login-form-label-email,
+.login-form-input-email:not(:placeholder-shown).login-form-input-email:not(:focus) ~ .login-form-label-email {
+  top: 2.3rem;
+  font-size: 0.8em;
 }
 
 
-.login-form-input{
+.login-form-label-password{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  width: fit-content;
+  position: absolute;
+  top: 7.35em;
+  cursor: text;
+  transition: top 200ms ease-in,
+  left 200ms ease-in,
+  font-size 200ms ease-in;
+  margin: 0;
+  background-color: white
+  
+}
+
+
+.login-form-input-password:focus ~ .login-form-label-password,
+.login-form-input-password:not(:placeholder-shown).login-form-input-password:not(:focus) ~ .login-form-label-password {
+  
+  top: 6.2rem;
+  font-size: 0.8em;
+}
+
+
+.login-form-input-email{
   height: 40px;
   font-family: 'Montserrat', sans-serif;
   border-radius: 7px;
-  // margin-bottom: 15px;
-  border: 1px solid rgba(128, 128, 128, 0.384) ;
+  margin-bottom: 15px;
+  border: 2px solid rgba(128, 128, 128, 0.384) ;
   width: 100%;
   max-width: 350px;
+  top:0;
+  left: 0;
+  outline: none;
+  background: none;
+    
+}
+
+.login-form-input-password{
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 7px;
+  margin-bottom: 15px;
+  border: 2px solid rgba(128, 128, 128, 0.384) ;
+  width: 100%;
+  max-width: 350px;
+  top:0;
+  left: 0;
+  outline: none;
+  background: none;
+}
+
+.login-form-input:hover{
+  border-color: rgb(144, 144, 226);
+}
+
+.login-form-input:focus{
+  border-color: rgb(51, 51, 194);
 
 }
+
 
 .login-btn{
   width: 100%;
@@ -91,10 +159,6 @@
   
 }
 
-.login-card:hover{
-  background-color: rgba(0, 0, 0, 0.014);
-
-}
 
 .forgot-password {
   text-decoration: none;
@@ -225,3 +289,5 @@
 
 
 }
+
+
