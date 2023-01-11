@@ -62,9 +62,6 @@ export default function ChangePassword() {
     }
   }
   
- const a234324 = 1
- const gello = "hi"
- console.log(gello)
 
   return (
     <div className="login-container">

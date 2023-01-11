@@ -22,7 +22,7 @@ export const Login = ( props) => {
     setLoading(true)
 
     // axios.post('/users/userlogin', {email, password})
-    axios.post('https://bunzl-validation-backend-production.up.railway.app/', {email, password})
+    axios.post('https://bunzl-validation-backend-production.up.railway.app/users/userlogin', {email, password})
     .then(res => {
       if(res.data === "User not Found") {
         setError("User not Found")
