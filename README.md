@@ -14,6 +14,7 @@ Sometimes, customers go into the store and cannot find their items due to stock 
 
 ## How to use it
 
-- You can access the project website here => https://bunzsmsemailtest.onrender.com/
+- You can log-in to test as john@gmail.com with the password 123. Beucause of the cost of messages, the SMS function is not available for other phones.
+- You can access the project website here => https://bunzl-front.onrender.com/
 - You can check the backend project here => https://github.com/JohnBorges52/Bunzl-Validation-backend
 - Clone this repository, install the dependencies using NPM Install and run the application by NPM Start.
