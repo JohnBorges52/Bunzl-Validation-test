@@ -11,7 +11,7 @@ export const TopNavBar = () => {
           
         </a>
         {!user && <a href='/login' className='login'>LOGIN</a>}
-        {user && <a href='/login' className='login'>PROFILE</a>}
+        {user && <a href='#' className='login'>PROFILE</a>}
 
       </div>
   )
