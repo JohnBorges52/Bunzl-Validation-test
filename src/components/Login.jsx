@@ -22,7 +22,7 @@ export const Login = ( props) => {
     setLoading(true)
 
     // axios.post('/users/userlogin', {email, password})
-    axios.post('https://bunzl-backend.onrender.com/users/userlogin', {email, password})
+    axios.post('https://bunzl-validation-backend-production.up.railway.app/', {email, password})
     .then(res => {
       if(res.data === "User not Found") {
         setError("User not Found")
@@ -49,14 +49,11 @@ export const Login = ( props) => {
     
     e.preventDefault()
     setLoading(true)
-
     localStorage.clear();
     setLoginBtn(true)
     setLoading(false)
     navigate("/login")
     window.location.reload(false)
-
-
 
   }
 
@@ -89,19 +86,13 @@ export const Login = ( props) => {
     })
   },[])
 
-
   return(
     <div className="login-container hidden">
-      
-
       <div className='login-card'>
-        
-        
       <form className="login-form">
       {loading &&
       <>
       <div className='loading-status'>
-
       </div> 
       <br/>
 
@@ -135,13 +126,9 @@ export const Login = ( props) => {
 
       <a className='forgot-password' href="/forgot-password"> Forgot your password? </a>
 
-      </>}
+    </>}
       </form>
-
-    
     </div>
-
-
     </div>
   );
 }

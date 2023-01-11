@@ -36,7 +36,7 @@ export default function ChangePassword() {
 
     if(pswValidation(password, passwordConfirmation)) {
       // axios.post("/users/change-password", {email, code, password})
-      axios.post("https://bunzl-backend.onrender.com/users/change-password", {email, code, password})
+      axios.post("https://bunzl-validation-backend-production.up.railway.app/users/change-password", {email, code, password})
       .then((res)=>{
         if(res.data === "User not Found") {
           console.log('res.data', res.data)
@@ -61,6 +61,7 @@ export default function ChangePassword() {
       })
     }
   }
+  
 
 
   return (
